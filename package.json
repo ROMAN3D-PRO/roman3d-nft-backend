@@ -7,9 +7,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "14.2.1",
+    "next": "13.5.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "type": "module"
+    "react-dom": "18.2.0",
+    "@thirdweb-dev/sdk": "^5.0.0"
+  }
 }
