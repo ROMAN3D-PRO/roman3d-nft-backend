@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const CONTRACT_ADDRESS = '0xa1F3B1592ea95ce73CBD8c3fb28C7dbd67e76F4B';
+const CONTRACT_ADDRESS = '0xa8a422FeD9689837D3b1d3C76562eFe00141E107';
 const API_KEY = 'db571969-9a7f-4a8e-8a9a-b3fd65f31115'; // clé Mainnet
 
 export default async function handler(req, res) {
@@ -9,10 +9,6 @@ export default async function handler(req, res) {
       `https://api.rarible.org/v0.1/items/byCollection?collection=${CONTRACT_ADDRESS}&size=50`,
       { headers: { 'X-API-KEY': API_KEY } }
     );
-
-    if (!response.data.items) {
-      return res.status(404).json({ error: 'Aucun NFT trouvé pour cette collection' });
-    }
 
     const nfts = response.data.items.map(item => ({
       id: item.id,
@@ -24,7 +20,7 @@ export default async function handler(req, res) {
     res.status(200).json(nfts);
 
   } catch (err) {
-    console.error('Erreur serveur complète:', err.response?.data || err.message);
-    res.status(500).json({ error: 'Erreur lors de la récupération des NFTs', details: err.response?.data });
+    console.error('Erreur serveur:', err.response?.data || err.message);
+    res.status(500).json({ error: 'Erreur lors de la récupération des NFTs' });
   }
 }
