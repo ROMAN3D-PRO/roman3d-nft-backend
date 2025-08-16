@@ -1,17 +1,13 @@
 import axios from 'axios';
 
 const CONTRACT_ADDRESS = '0xa1F3B1592ea95ce73CBD8c3fb28C7dbd67e76F4B';
-const API_KEY = 'db571969-9a7f-4a8e-8a9a-b3fd65f31115';  // <-- Ta clé Mainnet
+const API_KEY = 'db571969-9a7f-4a8e-8a9a-b3fd65f31115'; // <-- ta clé Mainnet
 
 export default async function handler(req, res) {
   try {
     const response = await axios.get(
       `https://api.rarible.org/v0.1/items/byCollection?collection=${CONTRACT_ADDRESS}&size=50`,
-      {
-        headers: {
-          'X-API-KEY': API_KEY
-        }
-      }
+      { headers: { 'X-API-KEY': API_KEY } }
     );
 
     if (!response.data.items) {
