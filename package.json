@@ -9,8 +9,7 @@
   "dependencies": {
     "next": "14.2.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "viem": "^1.1.4"   // si tu veux utiliser viem pour Alchemy/Polygon
+    "react-dom": "18.2.0"
   },
   "type": "module"
 }
